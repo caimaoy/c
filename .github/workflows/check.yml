@@ -7,14 +7,15 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, macos-12, macos-11] # , windows-latest]
+        os: [ubuntu-latest, macos-latest, macos-12, macos-11, windows-latest]
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
-        exclude:
-          - os: windows-latest
-            python-version: "3.8"
-          - os: ubantu-latest
-            python-version: "3.10"
+        # exclude:
+        #   - os: windows-latest
+        #     python-version: "3.8"
+        #   - os: ubantu-latest
+        #     python-version: "3.10"
 
     steps:
       - uses: actions/checkout@v3
